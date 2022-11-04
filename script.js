@@ -10,8 +10,15 @@ function sizeUpdate(e) {
     // size update function
 }
 
-function createGrid(e) {
+function clearGrid() {
     boxContainer.innerHTML = ''; // to clear up grid container
+}
+
+clearButton.addEventListener('click', 
+                clearGrid); // this will clear the grid container upon clicking
+
+function createGrid(e) {
+
     boxContainer.style.gridTemplateColumns = `repeat(${e}, 1fr)`
     boxContainer.style.gridTemplateRows = `repeat(${e}, 1fr)`
     // style to make boxes fit evenly
@@ -25,12 +32,10 @@ function createGrid(e) {
 }
 
 sizeSlider.addEventListener('input', (e) => {
-
-    
-    createGrid(e.target.value);
-
-
-    sizeUpdate(e);
+    // this will listen slider input for value
+    clearGrid(); // clear fist
+    createGrid(e.target.value); // add boxes based on slider value
+    sizeUpdate(e); // update the size display
 })
 
 
