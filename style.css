@@ -19,10 +19,17 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 170px;
 }
 
-.sketch-container {
+#sketch-container {
     background-color: rgb(250, 198, 198);
-    width: 330px;
-    height: 330px;
+    width: 30vw;
+    height: 30vw;
+    display: grid;
+}
+
+
+.box {
+    background-color: slateblue;
 }
