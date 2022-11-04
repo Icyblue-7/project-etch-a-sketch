@@ -13,16 +13,16 @@
         <div class="control-container">
             <div>
                 <p>Current size: <span id="current-size"></span></p>
-                <input type="range" name="size" id="size-button">
+                <input type="range" name="size" min="2" max="64" id="size-input">
             </div>
             <div>
-                <p>Pick color: </p>
-                <input type="color" name="color" id="color-button">
+                <p>Pick color</p>
+                <input type="color" name="color" id="color-input">
             </div>
             <button type="reset" id="clear-button">Clear everything</button>
         </div>
-        <div class="sketch-container">
-
+        <div id="sketch-container">
+            
         </div>
     </div>
 
