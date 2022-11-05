@@ -43,6 +43,13 @@ sizeSlider.addEventListener('input', (e) => {
     sizeUpdate(e); // update the size display
 })
 
+let currentColor = '#000';
+
+colorInput.addEventListener('change', (e) => {
+        currentColor = e.target.value;
+}) // this will change drawing color
+
+
 let mouseDown = false // this variable will check if mouse is clicked
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
@@ -50,7 +57,7 @@ document.body.onmouseup = () => (mouseDown = false)
 function draw() {
     if (!mouseDown) return; //if it isn't clicked, function will not run
 
-    this.style.backgroundColor = 'black' 
+    this.style.backgroundColor = currentColor; 
     // this will change the background color if mouse moves while clicked
 }
 
@@ -62,3 +69,6 @@ function draw() {
 
 
 */
+window.onload = () => {
+    createGrid(16);
+}
