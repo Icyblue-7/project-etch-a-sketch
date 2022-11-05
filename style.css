@@ -2,7 +2,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: antiquewhite;
+    background-color: rgb(32, 32, 32);
 }
 
 .main-container {
@@ -14,7 +14,7 @@ body {
 }
 
 .control-container {
-    background-color: rgb(221, 243, 236);
+    background-color: white;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -31,5 +31,5 @@ body {
 
 
 .box {
-    background-color: slateblue;
+    background-color: white;
 }
