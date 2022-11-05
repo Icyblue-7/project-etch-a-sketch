@@ -5,8 +5,8 @@ const clearButton = document.getElementById('clear-button');
 const boxContainer = document.getElementById('sketch-container');
 
 
-function sizeUpdate(e) {
-    sizeDisplay.innerHTML = `${e.target.value} x ${e.target.value}` 
+function sizeUpdate(value) {
+    sizeDisplay.innerHTML = `${value} x ${value}` 
     // size update function
 }
 
@@ -40,7 +40,7 @@ sizeSlider.addEventListener('input', (e) => {
     // this will listen slider input for value
     clearGrid(); // clear the grid fist
     createGrid(e.target.value); // add boxes based on slider value
-    sizeUpdate(e); // update the size display
+    sizeUpdate(e.target.value); // update the size display
 })
 
 let currentColor = '#000';
@@ -79,5 +79,6 @@ function draw() {
 
 
 window.onload = () => {
-    createGrid(16);
+    sizeUpdate(16);
+    createGrid(16); // this will create divs right away when page loads up
 }
