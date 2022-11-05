@@ -14,8 +14,9 @@ function clearGrid() {
     boxContainer.innerHTML = ''; // to clear up grid container
 }
 
-clearButton.addEventListener('click', 
-                clearGrid); // this will clear the grid container upon clicking
+clearButton.addEventListener('click', clearGrid); 
+    // this will clear the grid container upon clicking
+
 
 function createGrid(e) {
 
@@ -26,6 +27,10 @@ function createGrid(e) {
     for (let i = 0; i < (e*e); i++) {
         const newBox = document.createElement('div');
         newBox.classList.add('box'); 
+        
+        newBox.addEventListener('mouseover', draw)
+        //this line will run draw function on mousemove
+
         boxContainer.appendChild(newBox);
         // this will add new boxes based on slider input
     }
@@ -33,26 +38,26 @@ function createGrid(e) {
 
 sizeSlider.addEventListener('input', (e) => {
     // this will listen slider input for value
-    clearGrid(); // clear fist
+    clearGrid(); // clear the grid fist
     createGrid(e.target.value); // add boxes based on slider value
     sizeUpdate(e); // update the size display
 })
 
+let mouseDown = false // this variable will check if mouse is clicked
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
 
+function draw() {
+    if (!mouseDown) return; //if it isn't clicked, function will not run
 
-
+    this.style.backgroundColor = 'black' 
+    // this will change the background color if mouse moves while clicked
+}
 
 
 /* 
-+ size input will pick a value between 2 and 64
-+ function will take this value 
-+ based on value*value it will create box divs
-+ and will add boxes to sketch container
-+ boxes will have a .box class
-+ current size will display the box size
-- color input will pick a background color for boxes
-- clear button will remove the background color
 
+- color input will pick a background color for boxes
 
 
 
