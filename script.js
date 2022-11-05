@@ -49,6 +49,12 @@ colorInput.addEventListener('change', (e) => {
         currentColor = e.target.value;
 }) // this will change drawing color
 
+const rainbowButton = document.getElementById('rainbow');
+
+rainbowButton.addEventListener('click', (e) => {
+    rainbowButton.classList.toggle('active')
+}) // this will activate rainbow mode 
+
 
 let mouseDown = false // this variable will check if mouse is clicked
 document.body.onmousedown = () => (mouseDown = true)
@@ -56,19 +62,22 @@ document.body.onmouseup = () => (mouseDown = false)
 
 function draw() {
     if (!mouseDown) return; //if it isn't clicked, function will not run
-
-    this.style.backgroundColor = currentColor; 
+    if (rainbowButton.classList.contains('active')) {
+        const randomR = Math.floor(Math.random() * 256)
+        const randomG = Math.floor(Math.random() * 256)
+        const randomB = Math.floor(Math.random() * 256)
+        currentColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+        return this.style.backgroundColor = currentColor; 
+        // if rainbow mode is active, color will be dynamic
+    }
+    if (!rainbowButton.classList.contains('active')) {
+        this.style.backgroundColor = currentColor;
+        // if rainbow isn't active, color will be static
+    }
     // this will change the background color if mouse moves while clicked
 }
 
 
-/* 
-
-- color input will pick a background color for boxes
-
-
-
-*/
 window.onload = () => {
     createGrid(16);
 }
