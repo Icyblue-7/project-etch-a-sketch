@@ -2,10 +2,10 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: antiquewhite;
 }
 
 .main-container {
-    background-color: antiquewhite;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,8 +24,8 @@ body {
 
 #sketch-container {
     background-color: rgb(250, 198, 198);
-    width: 30vw;
-    height: 30vw;
+    width: 40vw;
+    height: 40vw;
     display: grid;
 }
 
